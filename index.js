@@ -54,7 +54,7 @@ async function readAllLeads() {
   }
 }
 
-app.get("/api/leads", async (req, res) => {
+app.get("/leads", async (req, res) => {
   try {
     const allLeads = await readAllLeads();
     if (allLeads) {
