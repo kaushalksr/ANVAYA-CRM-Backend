@@ -15,7 +15,7 @@ const SalesAgent = require("./models/salesAgent.model");
 const Comment = require("./models/comment.model");
 const Tag = require("./models/tag.model");
 
-initializeDatabase();
+await initializeDatabase();
 
 // TO ADD LEAD
 
@@ -46,7 +46,6 @@ app.post("/leads", async (req, res) => {
 // TO READ ALL LEADS
 
 async function readAllLeads() {
-  await initializeDatabase();
   try {
     const allLeads = await Lead.find();
     return allLeads;
