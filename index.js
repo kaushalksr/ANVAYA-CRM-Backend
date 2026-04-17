@@ -46,6 +46,7 @@ app.post("/leads", async (req, res) => {
 // TO READ ALL LEADS
 
 async function readAllLeads() {
+  await initializeDatabase();
   try {
     const allLeads = await Lead.find();
     return allLeads;
