@@ -61,6 +61,7 @@ app.get("/leads", async (req, res) => {
     if (allLeads && allLeads.length > 0) {
       res.json(allLeads);
     } else {
+      console.log("allLeads = ", allLeads);
       res.status(404).json({ message: "Failed to fetch  Leads!" });
     }
   } catch (error) {
