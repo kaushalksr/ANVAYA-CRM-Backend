@@ -57,6 +57,7 @@ async function readAllLeads() {
 app.get("/leads", async (req, res) => {
   try {
     const allLeads = await readAllLeads();
+    console.log("allLeads = ", allLeads);
     if (allLeads && allLeads.length > 0) {
       res.json(allLeads);
     } else {
