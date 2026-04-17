@@ -57,7 +57,7 @@ async function readAllLeads() {
 app.get("/leads", async (req, res) => {
   try {
     const allLeads = await readAllLeads();
-    if (allLeads) {
+    if (allLeads && allLeads.length > 0) {
       res.json(allLeads);
     } else {
       res.status(404).json({ message: "Failed to fetch  Leads!" });
@@ -184,7 +184,6 @@ async function deleteSalesAgentById(agentId) {
 }
 
 app.delete("/agents/:agentId", async (req, res) => {
-  
   try {
     const agent = await deleteSalesAgentById(req.params.agentId);
     if (agent) {
