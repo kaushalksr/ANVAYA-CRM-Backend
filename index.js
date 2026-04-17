@@ -1,19 +1,19 @@
-const { initializeDatabase } = require("../db/db.connect");
+const { initializeDatabase } = require("./db/db.connect");
 const express = require("express");
 const cors = require("cors");
 const corsOptions = {
   origin: "*",
   credentials: true,
 };
-const serverless = require("serverless-http");
+
 const app = express();
 app.use(cors(corsOptions));
 app.use(express.json());
 
-const Lead = require("../models/lead.model");
-const SalesAgent = require("../models/salesAgent.model");
-const Comment = require("../models/comment.model");
-const Tag = require("../models/tag.model");
+const Lead = require("./models/lead.model");
+const SalesAgent = require("./models/salesAgent.model");
+const Comment = require("./models/comment.model");
+const Tag = require("./models/tag.model");
 
 initializeDatabase();
 
@@ -309,4 +309,4 @@ app.get("/tags", async (req, res) => {
 //   console.log(`Server running on ${PORT}`);
 // });
 
-module.exports = serverless(app);
+module.exports = app;
